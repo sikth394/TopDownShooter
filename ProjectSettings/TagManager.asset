@@ -17,7 +17,7 @@ TagManager:
   - SmokeTrail
   - Spawner
   - GunFlash
-  - Enviornment
+  - Environment
   layers:
   - Default
   - TransparentFX

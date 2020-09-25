@@ -23,10 +23,11 @@ public class Shooting : MonoBehaviour
     void Shoot()
     {
         GameObject GunFlash = Instantiate(GunFlashPrefab, firePoint.position, firePoint.rotation);
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        GameObject Bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse) ;
-
+        Destroy(GunFlash, 0.5f);
+        Destroy(Bullet, 10f);
 
     }
 }
