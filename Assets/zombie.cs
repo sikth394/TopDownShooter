@@ -15,7 +15,8 @@ public class zombie : MonoBehaviour
     private void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        
+        Player = GameObject.FindGameObjectWithTag("Player").transform;
+
     }
     // Update is called once per frame
     void Update()
