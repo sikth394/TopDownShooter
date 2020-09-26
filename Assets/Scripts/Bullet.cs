@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            collision.gameObject.GetComponent<zombie>().TakeDamage(1);
             GameObject effect = Instantiate(EnemyHitEffect, transform.position, Quaternion.identity);
             GameObject.Destroy(gameObject);
             Destroy(effect, 0.1f);
