@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth = 4;
     public int currentHealth;
     public HealthBar healthBar;
+    Animator animator;
+    private float hitLast = 0;
+    private float hitDelay = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +28,24 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.SetHelth(currentHealth);
+        if ((Time.time - hitLast) < hitDelay)
+            return;
+        
+            if (currentHealth >0)
+            {
+                currentHealth -= damage;
+
+            }
+            else
+            {
+                currentHealth = 0;
+            }
+            
+            healthBar.SetHelth(currentHealth);
+            //animator.SetBool("death", true);
+        
+        hitLast = Time.time;
     }
 }

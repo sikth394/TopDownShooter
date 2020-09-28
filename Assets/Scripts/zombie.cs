@@ -6,21 +6,25 @@ public class zombie : MonoBehaviour
 {
 
 
-    public Transform Player;
+    //public Transform Player;
     private Rigidbody2D rb;
     public float moveSpeed;
     Transform target;
-    public float attackRadious = 80f;
+    public float attackRadious = 0.66f;
     Animator animator;
     public int maxHealth = 4;
     public int currentHealth;
+    public Transform attackPoint;
+    public float handRange = 0.2f;
+    public LayerMask playerLayer;
+    private bool canAttack;
 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        //Player = GameObject.FindGameObjectWithTag("Player").transform;
         target = PlayerManager.instance.player.transform;
         currentHealth = maxHealth;
 
@@ -28,7 +32,7 @@ public class zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = Player.position - transform.position;
+        Vector3 direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn")|| animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Death")) != true)
@@ -40,11 +44,12 @@ public class zombie : MonoBehaviour
 
         if (distance <= attackRadious)
         {
-            animator.SetBool("attack", true);
+            Attack();
+           
         }
         else
         {
-            animator.SetBool("attack",false);
+            animator.SetBool("attack", false); 
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
@@ -59,6 +64,18 @@ public class zombie : MonoBehaviour
 
     }
 
+
+    void Attack()
+    {
+        animator.SetBool("attack", true);
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, handRange, playerLayer);
+        if (hitPlayer!= null)
+        {
+            hitPlayer[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+        }
+
+    }
+
     void moveCharacter(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
@@ -68,6 +85,8 @@ public class zombie : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRadious);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(attackPoint.position, handRange);
     }
 
     public void TakeDamage(int damage)

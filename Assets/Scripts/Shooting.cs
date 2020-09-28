@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("ShootMain")){
+        if (Input.GetButtonDown("Fire1")){
 
             Shoot();
         }
