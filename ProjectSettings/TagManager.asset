@@ -18,6 +18,7 @@ TagManager:
   - Spawner
   - GunFlash
   - Environment
+  - Player HealthBar
   layers:
   - Default
   - TransparentFX

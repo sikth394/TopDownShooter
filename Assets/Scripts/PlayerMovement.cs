@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
-    public Camera cam;
+    Camera cam;
     Vector2 movement;
     Vector2 mousePos;
     Animator animator;
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log("child anim: " + childAnim);
+        cam = Camera.main;
     }
     // Update is called once per frame
     void Update()
@@ -30,12 +30,10 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x != 0 || movement.y != 0)
         {
             childAnim.SetBool("walk", true);
-            Debug.Log("walkinggggg");
         }
         else
         {
-            childAnim.SetBool("walk", false);
-            Debug.Log("stopped walkingggg");
+            childAnim.SetBool("walk", false);  
         }
     }
 
