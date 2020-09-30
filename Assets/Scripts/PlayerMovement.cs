@@ -10,14 +10,33 @@ public class PlayerMovement : MonoBehaviour
     public Camera cam;
     Vector2 movement;
     Vector2 mousePos;
+    Animator animator;
+    public Animator childAnim;
 
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        Debug.Log("child anim: " + childAnim);
+    }
     // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
+        
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        if (movement.x != 0 || movement.y != 0)
+        {
+            childAnim.SetBool("walk", true);
+            Debug.Log("walkinggggg");
+        }
+        else
+        {
+            childAnim.SetBool("walk", false);
+            Debug.Log("stopped walkingggg");
+        }
     }
 
     private void FixedUpdate()
