@@ -27,13 +27,16 @@ public class PlayerMovement : MonoBehaviour
 
         
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        if (movement.x != 0 || movement.y != 0)
+        if (childAnim != null)
         {
-            childAnim.SetBool("walk", true);
-        }
-        else
-        {
-            childAnim.SetBool("walk", false);  
+            if (movement.x != 0 || movement.y != 0)
+            {
+                childAnim.SetBool("walk", true);
+            }
+            else
+            {
+                childAnim.SetBool("walk", false);
+            }
         }
     }
 
