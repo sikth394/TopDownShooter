@@ -22,6 +22,7 @@ public class zombie : MonoBehaviour
     Vector3 direction;
     float angle;
     float distance = attackRadious + 1f;
+    public uint attackID;
 
 
     private void Start()
@@ -76,11 +77,18 @@ public class zombie : MonoBehaviour
     void Attack()
     {
         animator.SetBool("attack", true);
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, handRange, playerLayer);
-        if (hitPlayer!= null && target != null)
-        {
-            hitPlayer[0].gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+        attackID = (uint)Random.Range(0, uint.MaxValue);
+        if (target.GetComponent<PlayerHealth>().hitID != attackID) {
+
+            target.GetComponent<PlayerHealth>().TakeDamage(1);
+            target.GetComponent<PlayerHealth>().hitID = attackID;
         }
+        //Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, handRange, playerLayer);
+        //if (hitPlayer!= null && target != null)
+        //{
+        //    hitPlayer[0].GetComponent<PlayerHealth>().TakeDamage(1);
+        //}
+
 
     }
 

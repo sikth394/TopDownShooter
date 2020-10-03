@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TDGP;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,13 +12,16 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     Animator animator;
     private float hitLast = 0;
-    private float hitDelay = 1;
+    private float hitDelay = 2;
+    public uint hitID;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
         
-        currentHealth = maxHealth;
+        currentHealth = maxHealth; 
         healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
     }
@@ -30,33 +34,31 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if ((Time.time - hitLast) < hitDelay)
+        if ((Time.time - hitLast) < hitDelay) { 
             return;
-        
-            if (currentHealth >0)
+        }
+            if (currentHealth > 1)
             {
                 currentHealth -= damage;
-
+               
             }
-            else
+            else 
             {
                 currentHealth = 0;
-                healthBar.SetHelth(currentHealth);
                 Destroy(GetComponent<PlayerMovement>());
-            //Destroy(GetComponent<Transform>().GetChild(0).gameObject,0.1f);
-            //Destroy(GetComponent<Transform>().GetChild(2).gameObject,3f);
-                foreach (Transform child in gameObject.transform)
-                  {
-                     GameObject.Destroy(child.gameObject);
-                  }
+                int childs = transform.childCount;
+                for ( int i = childs -1; i>= 0; i--)
+                {
+                     GameObject.Destroy(transform.GetChild(i).gameObject);
+                }
+
                 animator.SetTrigger("death");
                 Destroy(gameObject.GetComponent<BoxCollider2D>());
                 Destroy(gameObject, 1f);
             }
-            
-            healthBar.SetHelth(currentHealth);
-            
-        
+           
+        healthBar.SetHealth(currentHealth);
+           
         hitLast = Time.time;
     }
 }
