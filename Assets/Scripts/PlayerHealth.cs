@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TDGP;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     private float hitLast = 0;
     private float hitDelay = 2;
     public uint hitID;
+   
     
     
 
@@ -21,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         
+        
+        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         currentHealth = maxHealth; 
         healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
@@ -40,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
             if (currentHealth > 1)
             {
                 currentHealth -= damage;
+                //GetComponent<PlayerMovement>().childAnim.SetTrigger("hit");
+                animator.SetTrigger("hit");
                
             }
             else 
@@ -55,6 +61,8 @@ public class PlayerHealth : MonoBehaviour
                 animator.SetTrigger("death");
                 Destroy(gameObject.GetComponent<BoxCollider2D>());
                 Destroy(gameObject, 1f);
+                
+                
             }
            
         healthBar.SetHealth(currentHealth);

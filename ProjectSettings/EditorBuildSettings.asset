@@ -6,4 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/TopDownGunPack/Scenes/Demo Scene.unity
+    path: Assets/Scenes/Main Menu.unity
+    guid: 0f7f1d0db562d014992af508232519a0
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 4130f9cf221cd1d4ea9f974a93113bcf
+  m_configObjects: {}
