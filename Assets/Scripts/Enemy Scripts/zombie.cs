@@ -51,7 +51,7 @@ public class zombie : MonoBehaviour
 
 
 
-        if (distance <= attackRadious && target != null)
+        if (distance <= attackRadious && target != null && gameObject.GetComponent<BoxCollider2D>())
         {
             Attack();
 
