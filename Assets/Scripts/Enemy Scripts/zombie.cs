@@ -21,7 +21,7 @@ public class zombie : MonoBehaviour
     //params only relevent when player is alive - 
     Vector3 direction;
     float angle;
-    float distance = attackRadious + 1f;
+    float distance = attackRadious;
     public uint attackID;
 
 
@@ -58,6 +58,7 @@ public class zombie : MonoBehaviour
         }
         else  
         {
+            //Debug.Log("distance" + distance);
             animator.SetBool("attack", false); 
         }
 
@@ -76,6 +77,8 @@ public class zombie : MonoBehaviour
 
     void Attack()
     {
+
+        Debug.Log("Im in attack state");
         animator.SetBool("attack", true);
         attackID = (uint)Random.Range(0, uint.MaxValue);
         if (target.GetComponent<PlayerHealth>().hitID != attackID) {
@@ -83,13 +86,6 @@ public class zombie : MonoBehaviour
             target.GetComponent<PlayerHealth>().TakeDamage(1);
             target.GetComponent<PlayerHealth>().hitID = attackID;
         }
-        //Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, handRange, playerLayer);
-        //if (hitPlayer!= null && target != null)
-        //{
-        //    hitPlayer[0].GetComponent<PlayerHealth>().TakeDamage(1);
-        //}
-
-
     }
 
     void moveCharacter(Vector2 direction)
@@ -110,10 +106,10 @@ public class zombie : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth == 0)
         {
-
-            animator.SetTrigger("Zombie Death");
             Destroy(gameObject.GetComponent<BoxCollider2D>());
-            Destroy(gameObject,0.5f);
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            animator.SetTrigger("Zombie Death");
+            Destroy(gameObject, 0.5f);
         }
     }
 
