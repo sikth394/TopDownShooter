@@ -78,7 +78,7 @@ public class zombie : MonoBehaviour
     void Attack()
     {
 
-        Debug.Log("Im in attack state");
+        //Debug.Log("Im in attack state");
         animator.SetBool("attack", true);
         attackID = (uint)Random.Range(0, uint.MaxValue);
         if (target.GetComponent<PlayerHealth>().hitID != attackID) {

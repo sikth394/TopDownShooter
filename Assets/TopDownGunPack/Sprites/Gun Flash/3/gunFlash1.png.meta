@@ -1,8 +1,78 @@
 fileFormatVersion: 2
 guid: 1c8d36da65e4f40b2a982de484a6323a
 TextureImporter:
-  fileIDToRecycleName: {}
-  serializedVersion: 4
+  fileIDToRecycleName:
+    21300000: gunFlash1_0
+    21300002: gunFlash1_1
+    21300004: gunFlash1_2
+    21300006: gunFlash1_3
+    21300008: gunFlash1_4
+    21300010: gunFlash1_5
+    21300012: gunFlash1_6
+    21300014: gunFlash1_7
+    21300016: gunFlash1_8
+    21300018: gunFlash1_9
+    21300020: gunFlash1_10
+    21300022: gunFlash1_11
+    21300024: gunFlash1_12
+    21300026: gunFlash1_13
+    21300028: gunFlash1_14
+    21300030: gunFlash1_15
+    21300032: gunFlash1_16
+    21300034: gunFlash1_17
+    21300036: gunFlash1_18
+    21300038: gunFlash1_19
+    21300040: gunFlash1_20
+    21300042: gunFlash1_21
+    21300044: gunFlash1_22
+    21300046: gunFlash1_23
+    21300048: gunFlash1_24
+    21300050: gunFlash1_25
+    21300052: gunFlash1_26
+    21300054: gunFlash1_27
+    21300056: gunFlash1_28
+    21300058: gunFlash1_29
+    21300060: gunFlash1_30
+    21300062: gunFlash1_31
+    21300064: gunFlash1_32
+    21300066: gunFlash1_33
+    21300068: gunFlash1_34
+    21300070: gunFlash1_35
+    21300072: gunFlash1_36
+    21300074: gunFlash1_37
+    21300076: gunFlash1_38
+    21300078: gunFlash1_39
+    21300080: gunFlash1_40
+    21300082: gunFlash1_41
+    21300084: gunFlash1_42
+    21300086: gunFlash1_43
+    21300088: gunFlash1_44
+    21300090: gunFlash1_45
+    21300092: gunFlash1_46
+    21300094: gunFlash1_47
+    21300096: gunFlash1_48
+    21300098: gunFlash1_49
+    21300100: gunFlash1_50
+    21300102: gunFlash1_51
+    21300104: gunFlash1_52
+    21300106: gunFlash1_53
+    21300108: gunFlash1_54
+    21300110: gunFlash1_55
+    21300112: gunFlash1_56
+    21300114: gunFlash1_57
+    21300116: gunFlash1_58
+    21300118: gunFlash1_59
+    21300120: gunFlash1_60
+    21300122: gunFlash1_61
+    21300124: gunFlash1_62
+    21300126: gunFlash1_63
+    21300128: gunFlash1_64
+    21300130: gunFlash1_65
+    21300132: gunFlash1_66
+    21300134: gunFlash1_67
+    21300136: gunFlash1_68
+  externalObjects: {}
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -10,6 +80,8 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -18,6 +90,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -25,10 +99,13 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
+    serializedVersion: 2
     filterMode: 1
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -37,54 +114,217 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
+  singleChannelComponent: 0
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   platformSettings:
-  - buildTarget: DefaultTexturePlatform
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
     maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Standalone
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
     maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: Android
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
     maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-  - buildTarget: WebGL
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 1024
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: gunFlash1_0
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 672
+        width: 193
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c03233a9b063d438bc3bcfdb82c65d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_1
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 691
+        width: 223
+        height: 322
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11a4205e439296a418a44b315741914d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_2
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 684
+        width: 210
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59a36362c5f6b74688973db55151c94
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_3
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 85
+        width: 288
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db183004a0fe0c548a35021dd91b5971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_4
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 128
+        width: 249
+        height: 387
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ec435749dad96047b107d7f21af8d27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_5
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 145
+        width: 213
+        height: 367
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae62bad330f81b48a0d3237ed77eebb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gunFlash1_6
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 740
+        width: 90
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65a20ce331b02064095a99670d86ba60
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 15309533b05e95d48aa93127736550b7
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

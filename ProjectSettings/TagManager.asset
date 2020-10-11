@@ -19,6 +19,9 @@ TagManager:
   - GunFlash
   - Environment
   - Player HealthBar
+  - GatlingGun
+  - Pistol
+  - FirePoint
   layers:
   - Default
   - TransparentFX
