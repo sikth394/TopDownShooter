@@ -6,14 +6,13 @@ public class activeWeapon : MonoBehaviour
 {
 
     public int SelectedWeapon;
-    public Sprite[] sprites;
-    public SpriteRenderer spriteR; // player sprite renderer
+    public Animator playerAnim; // player sprite renderer
+    public LayerMask weaponsLayerMask;
     // Start is called before the first frame update
     void Start()
     {
-        sprites = Resources.LoadAll<Sprite>("SoldierSprites");
-        spriteR = transform.GetComponentInParent<SpriteRenderer>();
-        Debug.Log(spriteR.gameObject.name);
+        playerAnim = transform.GetComponentInParent<Animator>();
+        weaponsLayerMask = LayerMask.GetMask("Weapons");
         SelectWeapon();
     }
 
@@ -26,17 +25,24 @@ public class activeWeapon : MonoBehaviour
     void SelectWeapon()
     {
         int i = 0;
-        foreach (Transform weapon in transform)
+        foreach (Transform weapon in transform) //cycles through weapons in 'weapon' gameObject
         {
             if (i == SelectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
                 transform.GetComponentInParent<Shooting>().firePoint = weapon.GetChild(0);
                 transform.GetComponentInParent<Shooting>().GunFlashPrefab = weapon.GetChild(1).GetChild(0).gameObject;
-                if (SelectedWeapon == 0)
+                if (weapon.gameObject.CompareTag("GatlingGun"))
                 {
-                    spriteR.sprite = sprites[2];
-                    Debug.Log("i changed the sprite");
+                    playerAnim.SetFloat("body", 0.8f);
+                }
+                if (weapon.gameObject.CompareTag("OneHanded"))
+                {
+                    playerAnim.SetFloat("body", 0.2f);
+                }
+                if (weapon.gameObject.CompareTag("TwoHanded"))
+                {
+                    playerAnim.SetFloat("body", 0.5f);
                 }
             }
             else
@@ -46,5 +52,20 @@ public class activeWeapon : MonoBehaviour
             i++;
         }
         
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        //Debug.Log("I've entered on collision stay");
+        if (collision.gameObject.layer == 10)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SelectedWeapon = collision.GetComponent<weaponIndex>().weaponIndx;
+                Debug.Log("SelectedWeapon is" + SelectedWeapon);
+                SelectWeapon();
+                Debug.Log("Ive changed weapons!");
+            }
+        }
     }
 }

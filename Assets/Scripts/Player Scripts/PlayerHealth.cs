@@ -58,7 +58,8 @@ public class PlayerHealth : MonoBehaviour
                      GameObject.Destroy(transform.GetChild(i).gameObject);
                 }
 
-                animator.SetTrigger("death");
+            animator.SetTrigger("death");
+            animator.SetFloat("body", 2);
                 Destroy(gameObject.GetComponent<BoxCollider2D>());
                 Destroy(gameObject, 1f);
                 

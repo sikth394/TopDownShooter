@@ -44,9 +44,12 @@ public class zombie : MonoBehaviour
              angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             distance = Vector3.Distance(target.position, transform.position);
         }
-        if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn")|| animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Death")) != true)
+        if ((animator.GetCurrentAnimatorStateInfo(0).IsName("Spawn") || animator.GetCurrentAnimatorStateInfo(0).IsName("Zombie Death")) != true)
         {
-            rb.rotation = angle;
+            if (rb != null)
+            { 
+                 rb.rotation = angle;
+            }
         }
 
 
@@ -90,7 +93,10 @@ public class zombie : MonoBehaviour
 
     void moveCharacter(Vector2 direction)
     {
-        rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+        if (rb != null)
+        {
+            rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
+        }
     }
 
     void OnDrawGizmosSelected()
