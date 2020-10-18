@@ -22,6 +22,9 @@ TagManager:
   - GatlingGun
   - Pistol
   - FirePoint
+  - OneHanded
+  - TwoHanded
+  - Shotgun
   layers:
   - Default
   - TransparentFX
@@ -33,7 +36,7 @@ TagManager:
   - 
   - Enemy
   - Player
-  - 
+  - Weapons
   - 
   - 
   - 

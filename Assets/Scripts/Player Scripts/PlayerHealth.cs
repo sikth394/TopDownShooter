@@ -13,8 +13,9 @@ public class PlayerHealth : MonoBehaviour
     public HealthBar healthBar;
     Animator animator;
     private float hitLast = 0;
-    private float hitDelay = 2;
+    private float hitDelay = 1.5f;
     public uint hitID;
+    public GameOverMenu gameOver ;
    
     
     
@@ -28,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth; 
         healthBar.SetMaxHealth(maxHealth);
         animator = GetComponent<Animator>();
+        gameOver = GameObject.Find("Canvas").GetComponent<GameOverMenu>();   //once player is dead a Game Over menu pops up
+
     }
 
     // Update is called once per frame
@@ -59,10 +62,14 @@ public class PlayerHealth : MonoBehaviour
                 }
 
                 animator.SetTrigger("death");
+                animator.SetFloat("body", 2);
                 Destroy(gameObject.GetComponent<BoxCollider2D>());
                 Destroy(gameObject, 1f);
+                gameOver.playerIsDead = true;
                 
-                
+
+
+
             }
            
         healthBar.SetHealth(currentHealth);
