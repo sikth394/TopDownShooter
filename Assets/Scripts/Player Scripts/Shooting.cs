@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject GunFlashPrefab;
     public string activeWeapon;
+    public Transform[] firePoints; //of when more then one firepoint is needed (e.g shotgun)
 
     //fields regarding auto-fire (e.g gatling gun..)
     public float autoFireDelay = 0.05f;
@@ -53,7 +54,9 @@ public class Shooting : MonoBehaviour
                     {
                         if ((Time.time - firelast) > shotgunFireDelay)
                         {
-                            Shoot();
+                            Shoot(firePoints);
+                            
+
                             firelast = Time.time;
                         }
                     }
@@ -73,19 +76,17 @@ public class Shooting : MonoBehaviour
 
     }
 
-    void Shoot (int x) //overloading of when more then one bullet needs to be fired (x amount of bullets)
+    void Shoot (Transform[] firePoints) //overloading of when more then one bullet needs to be fired (x amount of bullets)
     {
-        GameObject GunFlash = Instantiate(GunFlashPrefab, firePoint.position, firePoint.rotation);
-        Quaternion firePointRotation = firePoint.rotation;
-        
-        for (int i = 0; i < x; i++)
+        GameObject GunFlash = Instantiate(GunFlashPrefab, firePoints[1].position, firePoints[1].rotation);
+        for (int i = 0; i < firePoints.Length; i++)
         {
-            firePointRotation.z = (firePoint.rotation.z - 15f) + (15f * x);
-            GameObject Bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Debug.Log("a new bullet was created");
+            GameObject Bullet = Instantiate(bulletPrefab, firePoints[i].position, firePoints[i].rotation);
             Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
-            
+            rb.AddForce(firePoints[i].up * bulletforce, ForceMode2D.Impulse);
+            Destroy(GunFlash, 0.5f);
+            Destroy(Bullet, 10f);
+
         }
         Destroy(GunFlash, 0.5f);
     }

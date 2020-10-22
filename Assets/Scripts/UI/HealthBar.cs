@@ -28,7 +28,7 @@ public class HealthBar : MonoBehaviour
             damageFadeTimer -= Time.deltaTime;
             if (damageFadeTimer < 0)
             {
-                float fadeAmount = 2f;
+                float fadeAmount = 3f;
                 damageColor.a -= fadeAmount * Time.deltaTime;
                 damageImage.color = damageColor;
             }

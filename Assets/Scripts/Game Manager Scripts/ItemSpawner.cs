@@ -27,11 +27,11 @@ public class ItemSpawner : MonoBehaviour
                 break;
 
             case 2:
-                weaponSpawns.transform.GetChild(1).gameObject.SetActive(true); //shotgun
+                weaponSpawns.transform.GetChild(2).gameObject.SetActive(true); //shotgun
                 break;
 
             case 4:
-                weaponSpawns.transform.GetChild(2).gameObject.SetActive(true); //gatling gun
+                weaponSpawns.transform.GetChild(1).gameObject.SetActive(true); //gatling gun
                 break;
         }
     }

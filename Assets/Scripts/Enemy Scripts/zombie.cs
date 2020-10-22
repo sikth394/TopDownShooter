@@ -8,8 +8,13 @@ public class zombie : MonoBehaviour
 
     //public Transform Player;
     private Rigidbody2D rb;
-    public float moveSpeed;
-    Transform target;
+
+    private float moveSpeed; //fields regarding move speed of the zombie
+    public float MoveSpeedMin;
+    public float MoveSpeedMax;
+
+    Transform target;   //player
+
     public static float attackRadious = 0.66f;
     Animator animator;
     public int maxHealth = 4;
@@ -32,6 +37,7 @@ public class zombie : MonoBehaviour
         //Player = GameObject.FindGameObjectWithTag("Player").transform;
         target = PlayerManager.instance.player.transform;
         currentHealth = maxHealth;
+        moveSpeed = Random.Range(MoveSpeedMin, MoveSpeedMax);
         
 
     }
