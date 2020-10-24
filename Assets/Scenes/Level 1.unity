@@ -1067,6 +1067,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0cc7ab5b6c1b742bf18e758e8112c1, type: 3}
+--- !u!1001 &545595989
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952295074711620154, guid: f54982e13e2d8404587cb0b824f29914,
+        type: 3}
+      propertyPath: m_Name
+      value: Skeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f54982e13e2d8404587cb0b824f29914, type: 3}
 --- !u!1 &571036935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,29 +1210,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Zombies 1
-    enemy: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914, type: 3}
-    count: 4
-    rate: 1
+    enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
+    count: 0
+    rate: 1.1
+    enemies:
+    - {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
+    - {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914, type: 3}
+    enemiesCount: 0100000001000000
   - name: Zombies 2
     enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
     count: 8
     rate: 1.5
+    enemies: []
+    enemiesCount: 
   - name: Zombies 3
     enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
     count: 14
     rate: 2
+    enemies: []
+    enemiesCount: 
   - name: Zombies 4
     enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
     count: 25
     rate: 3.79
+    enemies: []
+    enemiesCount: 
   - name: Zombies 5
     enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
     count: 30
     rate: 6.43
+    enemies: []
+    enemiesCount: 
   - name: Zombies 6
     enemy: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a, type: 3}
     count: 50
     rate: 7
+    enemies: []
+    enemiesCount: 
   nextWave: 0
   spawnPoints:
   - {fileID: 1389011748}
@@ -1371,7 +1454,7 @@ PrefabInstance:
     - target: {fileID: 436004753231620902, guid: 5594e7306780ae84fbee9fbcb508ab8a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1633274736058869527, guid: 5594e7306780ae84fbee9fbcb508ab8a,
         type: 3}
@@ -27682,100 +27765,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1090809682
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.21386719
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620144, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620149, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: MoveSpeedMin
-      value: 3.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620149, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: MoveSpeedMax
-      value: 4.83
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620154, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_Name
-      value: Skeleton
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620155, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620155, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2952295074711620155, guid: f54982e13e2d8404587cb0b824f29914,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f54982e13e2d8404587cb0b824f29914, type: 3}
 --- !u!1 &1132592936
 GameObject:
   m_ObjectHideFlags: 0
@@ -31392,13 +31381,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: To Do List
   textList:
+  - s: "skeleton\n- fix jitter in animation (add something like hit-delay on player\nto
+      the 'attack' bool in animation ) - check time since last switch, \nand enable
+      only if enough time has passed\n"
+    state: 0
+    show: 1
+    deleteQuestion: 0
   - s: 'menu
 
       -game over (with restart button)
 
       -title menu'
     state: 0
-    show: 1
+    show: 0
+    deleteQuestion: 0
+  - s: make another level
+    state: 0
+    show: 0
     deleteQuestion: 0
   - s: make the gatling gun fire rapidly
     state: 3
@@ -31409,11 +31408,7 @@ MonoBehaviour:
       made shotgun, need to overload shoot() method
 
       -fire a different pattern'
-    state: 0
-    show: 1
-    deleteQuestion: 0
-  - s: make another level
-    state: 0
+    state: 3
     show: 0
     deleteQuestion: 0
   - s: 'fix player sprite not changing '
@@ -31451,6 +31446,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1143396228102783581, guid: 4ab2cc63e74f0f646840fc0d8b757c7b,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171356628395495766, guid: 4ab2cc63e74f0f646840fc0d8b757c7b,
+        type: 3}
+      propertyPath: maxHealth
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7147151081261241420, guid: 4ab2cc63e74f0f646840fc0d8b757c7b,
         type: 3}
       propertyPath: m_LocalPosition.x

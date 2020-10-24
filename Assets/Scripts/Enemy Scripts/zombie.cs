@@ -57,10 +57,12 @@ public class zombie : MonoBehaviour
                 rb.rotation = angle;
                 gameObject.GetComponent<BoxCollider2D>().enabled = true;
             }
-        }
-        else
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+
+            else
+            {
+
+                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
 
 

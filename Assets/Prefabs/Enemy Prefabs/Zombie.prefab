@@ -162,12 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e727d2cd119a80459ebf9acfc5ba0b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeedMin: 0.5
-  MoveSpeedMax: 1
+  MoveSpeedMin: 3.2
+  MoveSpeedMax: 3.9
   maxHealth: 4
   currentHealth: 0
   attackPoint: {fileID: 1956018245428280561}
-  handRange: 0.21
+  handRange: 0.22
   playerLayer:
     serializedVersion: 2
     m_Bits: 512

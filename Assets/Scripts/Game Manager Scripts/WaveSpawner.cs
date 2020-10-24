@@ -16,12 +16,16 @@ public class WaveSpawner : MonoBehaviour
         public Transform enemy;
         public int count;
         public float rate;
+        public Transform[] enemies; //for spawning multiple types of enemies in the same wave
+        public int[] enemiesCount; // array of same length as enemies where each cell holds the number of enemies in the corresponding index in enemies[]
+        
     }
 
     public Wave[] waves;
     public int nextWave = 0;
 
     public Transform[] spawnPoints;
+
 
     public float timeBetweenWaves;
     private float waveCountdown;
@@ -40,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
         }
         waveCountdown = timeBetweenWaves;
         itemSpawner = gameObject.GetComponent<ItemSpawner>();
+        
     }
 
     void Update()
@@ -60,7 +65,19 @@ public class WaveSpawner : MonoBehaviour
         {
             if (state != SpawnState.SPAWNING)
             {
-                StartCoroutine(SpawnWave(waves[nextWave]));
+                if (waves[nextWave].enemies.Length == 0)
+                {
+                    Debug.Log("im in the regualar spawn ");
+                    StartCoroutine(SpawnWave(waves[nextWave]));
+
+                }
+                else
+                {
+
+                    StartCoroutine(SpawnWave(waves[nextWave], waves[nextWave].enemies, waves[nextWave].enemiesCount));
+                    Debug.Log("im in the  mixed  spawn ");
+
+                }
             }
         }
         else
@@ -104,17 +121,34 @@ public class WaveSpawner : MonoBehaviour
         return true;
     }
 
-    IEnumerator SpawnWave (Wave _wave)
+    IEnumerator SpawnWave(Wave _wave)
     {
         Debug.Log("Spawning wave" + _wave.name);
         state = SpawnState.SPAWNING;
 
-        for ( int i = 0; i < _wave.count; i++)
+        for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
+        state = SpawnState.WAITING;
+        yield break;
+    }
+
+    IEnumerator SpawnWave(Wave _wave, Transform[] enemies, int[] enemiesCount) // overloading of SpawnWave where more then one type of enemy is specified
+    {
+        Debug.Log("Spawning wave" + _wave.name);
+        state = SpawnState.SPAWNING;
+
+        for (int i = 0; i <enemies.Length; i++)
+        {
+            for (int j = 0; j < enemiesCount[i]; j++)
+            {
+                SpawnEnemy(enemies[i]);
+                yield return new WaitForSeconds(1f / _wave.rate);
+            }
+        }
         state = SpawnState.WAITING;
         yield break;
     }
