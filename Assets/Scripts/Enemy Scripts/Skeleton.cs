@@ -11,17 +11,19 @@ public class Skeleton : MonoBehaviour
     //public Transform Player;
     private Rigidbody2D rb;
 
-    private float moveSpeed; //fields regarding move speed of the zombie
+    private float moveSpeed; //fields regarding move speed of the skeleton
     public float MoveSpeedMin;
     public float MoveSpeedMax;
 
     Transform target;   //player
 
+    //fields regarding attack range
     public  float attackRadious;
-
     public float leftArmRadious;
     public float rightArmRadious;
+
     Animator animator;
+
     public int maxHealth = 4;
     public int currentHealth;
 
@@ -38,6 +40,10 @@ public class Skeleton : MonoBehaviour
     public Transform rightArm;
     public Transform body;
     public uint attackID;
+
+    //fields fixing jitter in animation transition from 'attack' to 'move' - allows transitions only if enough time from last transition was passed
+    private float lastAnimChange = 0;
+    private float AnimChangeDelay = 0.2f;
 
 
     private void Start()
@@ -84,21 +90,31 @@ public class Skeleton : MonoBehaviour
 
         if (((distance <= attackRadious) || (distanceToLeftArm <= leftArmRadious) || (distanceToRightArm <= rightArmRadious)) && target != null && gameObject.GetComponent<PolygonCollider2D>())                // attack conditions
         {
-            animator.SetBool("attack", true);
-            Attack();
+            if ((Time.time - lastAnimChange) > AnimChangeDelay)
+            {
+                 animator.SetBool("attack", true);
+                Attack();
+                lastAnimChange = Time.time;
+            }
 
         }
         else
         {
             //Debug.Log("distance" + distance);
-            animator.SetBool("attack", false);
+            if ((Time.time - lastAnimChange) > AnimChangeDelay) 
+            {
+                animator.SetBool("attack", false);
+            }
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
         {
             //Debug.Log("Im in Move animation");
-            direction.Normalize();
-            moveCharacter(direction);
+            if (rb != null)
+            {
+                direction.Normalize();
+                moveCharacter(direction);
+            }
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
@@ -141,8 +157,8 @@ public class Skeleton : MonoBehaviour
             Destroy(gameObject.GetComponent<PolygonCollider2D>());
             Destroy(gameObject.GetComponent<Rigidbody2D>());
             animator.SetTrigger("death");
-            Destroy(gameObject.GetComponent<Animator>(), 1.23f);
-            Destroy(gameObject, 1.24f);
+            Destroy(gameObject.GetComponent<Animator>(), 1.4f);
+            Destroy(gameObject, 1.4f);
         }
     }
 
